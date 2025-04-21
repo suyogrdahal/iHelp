@@ -183,7 +183,7 @@ class HelpController:
         # Accept this offer
         help_offer_collection.update_one(
             {"_id": ObjectId(offer_id)},
-            {"$set": {"status": "accepted"}}
+            {"$set": {"status": "accepted"}} 
         )
 
         # Reject other offers
@@ -201,7 +201,8 @@ class HelpController:
             {
                 "$set": {
                     "helper": offer["giver_email"],
-                    "statuscode": "300" 
+                    "statuscode": "300" ,
+                    "helped": True
                 }
             }
         )
