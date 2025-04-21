@@ -9,9 +9,9 @@ from controllers.user_controller import UserController
 class HelpController:
    
     def create_help_request(self, help_request: HelpCreate, user_email: str):
-        """Create a new help request."""
         try:
-            new_help = help_request.dict()
+            new_help = help_request.dict(exclude={"timestamp"})  
+            new_help["timestamp"] = datetime.utcnow()            
             new_help["statuscode"] = "100"
             new_help["author"] = user_email  
             result = help_collection.insert_one(new_help)
@@ -115,7 +115,6 @@ class HelpController:
             )
 
     def delete_help_request(self, help_id: str, user_email: str):
-        """Delete a help request (only if owned by user)."""
         try:
             result = help_collection.delete_one(
                 {"_id": ObjectId(help_id), "author": user_email}

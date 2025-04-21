@@ -11,6 +11,8 @@ import ViewMyHelp from "./pages/ViewMyHelp";
 import Signup from "./pages/Signup";
 import VerifyAccount from "./pages/VerifyUser";
 import MyHelpOffers from "./pages/MyHelpOffers";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 function App() {
   return (
     <Router>
@@ -25,6 +27,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/verify" element={<VerifyAccount />} />
           <Route path="/my-offers" element={<MyHelpOffers />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Routes>
 
       </div>

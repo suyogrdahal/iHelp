@@ -13,6 +13,7 @@ class UserCreate(BaseModel):
     program: str
     address: str
     phone_number: str
+    is_admin: Optional[bool] = False 
 
     @field_validator("email")
     @classmethod
