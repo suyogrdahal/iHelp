@@ -5,3 +5,4 @@ client = MongoClient(MONGO_URL)
 db = client["iHelp"]
 users_collection = db["users"]
 help_collection = db["help_requests"]
+help_offer_collection = db["help_offers"]

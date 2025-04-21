@@ -61,6 +61,7 @@ class HelpCreate(BaseModel):
 class HelpUpdate(BaseModel):
     heading: Optional[str]
     content: Optional[str]
-    status: Optional[str]
-    helped: Optional[bool]
-    helper: Optional[str]
+
+class HelpOfferCreate(BaseModel):
+    comment: Optional[str] = None   
+    

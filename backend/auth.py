@@ -2,7 +2,7 @@
 import jwt
 from datetime import datetime, timedelta
 from passlib.context import CryptContext
-from fastapi import HTTPException, status
+from fastapi import HTTPException, Depends, Header
 from pydantic import BaseModel
 from typing import Optional
 
@@ -35,3 +35,16 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 class UserLogin(BaseModel):
     email: str
     password: str
+
+
+
+def get_current_user(authorization: Optional[str] = Header(default=None)):
+    if not authorization:
+        raise HTTPException(status_code=401, detail="Authorization header missing")
+
+    try:
+        token = authorization.split(" ")[1]
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        return payload["sub"]  # assumes 'sub' contains user email
+    except Exception:
+        raise HTTPException(status_code=401, detail="Invalid token")
