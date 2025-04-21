@@ -333,7 +333,9 @@ const ViewHelp = () => {
                     <div className="modal-overlay">
                         <div className="modal">
                             <h3>Send Help Request</h3>
-                            <p>Sure send a help request? Your information will be shared with them if they accept your help request.</p>
+                            <p>Send a help request? Your information: Email and Phone, will be shared with the requester if they accept your help offer.
+                                This is so they can contact you directly.
+                            </p>
                             <textarea
                                 rows="4"
                                 placeholder="Add a short message (optional)"

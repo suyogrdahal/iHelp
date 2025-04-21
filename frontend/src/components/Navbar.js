@@ -60,7 +60,7 @@ const Navbar = ({ loggedIn }) => {
             Log Out
           </button>
 
-          <span className="welcome-text">Welcome Back</span>    
+          <span className="welcome-text">Logged in as: {localStorage.getItem("user_email").split("@")[0]}</span>    
           </>
         )}
         </div>
